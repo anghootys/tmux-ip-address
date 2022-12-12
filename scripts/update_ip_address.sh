@@ -16,7 +16,7 @@ do_interpolation() {
 
   local interpolated="$(echo $1 | sed "s/\x07.*\x07/\x07$ip_addr\x07/g")"
 
-  echo $interpolated
+  echo "$interpolated"
 }
 
 update_tmux_option() {

@@ -10,7 +10,14 @@ ip_address_refresh_cmd_key="$(get_tmux_option "@ip_address_refresh_key" "A")"
 
 do_interpolation() {
   local string="$1"
-  local interpolated="${string/$ip_address_interpolation_string/$ip_address}"
+  local ip_addr=$ip_address
+  if [ -z "$ip_addr" ]
+  then
+    ip_addr="Offline"
+  fi
+
+  local interpolated="$(echo $1 | sed "s/$ip_address_interpolation_string/\x07$ip_addr\x07/g")"
+
   echo "$interpolated"
 }
 
