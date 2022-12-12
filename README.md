@@ -2,7 +2,6 @@
 
 The plugin shows public IP Address on the status bar of tmux using `#{ip_address}` syntax on the tmux `status-right` option.
 
-IP Address refreshed on new tmux session.
 
 ## Usage
 
@@ -16,6 +15,12 @@ You'll now see some information like so:
 
 ```
 172.116.1.10
+```
+
+IP Address can be refreshed by <kbd>prefix</kbd> + <kbd>A</kbd>.
+The key combination of refreshing IP Address can be customized by:
+```bash
+set -g @ip_address_refresh_key 'P'
 ```
 
 ## Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
